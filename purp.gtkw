@@ -1,0 +1,34 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Mon Sep 23 02:14:22 2019
+[*]
+[dumpfile] "C:\Users\unLvcky\Desktop\ECE6710HW2\Bin_BCD.vcd"
+[dumpfile_mtime] "Mon Sep 23 02:10:20 2019"
+[dumpfile_size] 73323
+[savefile] "C:\Users\unLvcky\Desktop\ECE6710HW2\purp.gtkw"
+[timestart] 0
+[size] 2560 1377
+[pos] -243 -243
+*-5.000000 207 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Bin_BCD_Input.
+[sst_width] 197
+[signals_width] 456
+[sst_expanded] 1
+[sst_vpaned_height] 426
+@28
+Bin_BCD_Input.dut.bcdOut[19:0]
+@25
+Bin_BCD_Input.dut.binIn[7:0]
+@28
+[color] 3
+Bin_BCD_Input.dut.clk
+@24
+[color] 3
+Bin_BCD_Input.dut.counter[3:0]
+@28
+[color] 7
+Bin_BCD_Input.dut.decOut[11:0]
+Bin_BCD_Input.dut.dec_and_bin[19:0]
+Bin_BCD_Input.dut.reset
+[pattern_trace] 1
+[pattern_trace] 0
