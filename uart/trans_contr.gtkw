@@ -1,21 +1,21 @@
 [*]
 [*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
-[*] Tue Sep 24 19:50:38 2019
+[*] Tue Sep 24 20:08:24 2019
 [*]
 [dumpfile] "C:\Users\Alex Lee\Desktop\ece6710hw2\ECE6710\uart\Trans_Contr.vcd"
-[dumpfile_mtime] "Tue Sep 24 19:50:14 2019"
-[dumpfile_size] 3727
+[dumpfile_mtime] "Tue Sep 24 19:54:02 2019"
+[dumpfile_size] 3855
 [savefile] "C:\Users\Alex Lee\Desktop\ece6710hw2\ECE6710\uart\trans_contr.gtkw"
 [timestart] 431
 [size] 1536 760
-[pos] -87 -87
-*-7.085861 858 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -35 -35
+*-7.085861 694 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] Trans_Contr_tb.
 [treeopen] Trans_Contr_tb.dut.
 [sst_width] 331
 [signals_width] 305
 [sst_expanded] 1
-[sst_vpaned_height] 249
+[sst_vpaned_height] 341
 @28
 Trans_Contr_tb.dut.Reset
 Trans_Contr_tb.dut.Clk
