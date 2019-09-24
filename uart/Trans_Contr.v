@@ -1,11 +1,13 @@
 `include "Data_Reg.v"
 `include "Shift_Reg.v"
 
-module Trans_Contr(Serial_out, Clk, Reset, Byte_ready, T_byte);
+module Trans_Contr(Serial_out, Clk, Reset, Byte_ready, T_byte, Data_in);
 	output Serial_out;
 	input Clk, Reset;
 	input Byte_ready, T_byte; // Byte_ready for signalling loading the shift reg
 								// T_byte used to actually signal a transmit operation
+
+	input [7:0] Data_in;							
 	// status registers
 	reg Start, /*Clear, */Load_shift_register, Load_XMT_register;
 	reg [3:0] Counter;
@@ -24,7 +26,7 @@ module Trans_Contr(Serial_out, Clk, Reset, Byte_ready, T_byte);
 	
 	reg[1:0] ps, ns;
 
-	Data_Reg data_reg(.Byte_pckg_out(Byte_pckg_out_Data_reg_in), .Data_bus(8'b01010101), .Clk(Clk), .Reset(Reset), .Load_XMT_register(Load_XMT_register_w));
+	Data_Reg data_reg(.Byte_pckg_out(Byte_pckg_out_Data_reg_in), .Data_bus(Data_in), .Clk(Clk), .Reset(Reset), .Load_XMT_register(Load_XMT_register_w));
 	Shift_Reg shift_reg(.Serial_out(Serial_out), .Data_reg_in(Byte_pckg_out_Data_reg_in), .Load_shift_register(Load_shift_register_w), .Start(Start_w), .Clk(Clk), .Reset(Reset));
 
 
@@ -57,15 +59,26 @@ module Trans_Contr(Serial_out, Clk, Reset, Byte_ready, T_byte);
 						ns <= Transmitting;
 						Counter <= 4'b0; 
 					end else begin 
-						ns <= Loading;
-						Load_shift_register <= 1;
-						Load_XMT_register <= 1;
-						Start <= 0;	
+						if (Load_shift_register == 1'b0) begin
+							ns <= 2'b00;
+							//Load_shift_register <= 0;
+							Load_XMT_register <= 0;
+							Start <= 0;
+						end else begin
+
+							ns <= Loading;
+							//Load_shift_register <= 1;
+							Load_XMT_register <= 1;
+							Start <= 0;	
+						end
 					end
 				Transmitting: //-------------------------------------------------------TRANSMITTING----------------------------
 					if (Counter == 4'b1100) begin // unsure about when to set counter rn
 						ns <= Clearing;
-						Counter <= 4'b0;
+						Load_shift_register <= 0; // these two loads were moved from Clearing stage to hit it a cycle before
+						Load_XMT_register <= 0;
+						Start <= 0;
+						
 					end else begin
 						ns <= Transmitting;
 						Counter <= Counter + 1'b1;
@@ -75,13 +88,11 @@ module Trans_Contr(Serial_out, Clk, Reset, Byte_ready, T_byte);
 					end
 				Clearing: // ---------------------------------------------------------CLEARING-----------------------------------
 					begin
+						//Counter <= 4'b0;
 						ns <= Idle;
-						Load_shift_register <= 0;
 						Load_XMT_register <= 0;
 						Start <= 0;
 					end
-				// default:
-				// 	ns = Idle;
 			endcase
 		end
 	end
@@ -117,7 +128,7 @@ module Trans_Contr_tb();
 	assign Data_bus_w = Data_bus; 
 
 
-	Trans_Contr dut(.Serial_out(Serial_out), .Clk(Clk_w), .Reset(Reset_w), .Byte_ready(Byte_ready_w), .T_byte(T_byte_w));
+	Trans_Contr dut(.Serial_out(Serial_out), .Clk(Clk_w), .Reset(Reset_w), .Byte_ready(Byte_ready_w), .T_byte(T_byte_w), .Data_in(Data_bus_w));
 
 
 	always #PERIOD Clk=~Clk;
@@ -130,7 +141,7 @@ module Trans_Contr_tb();
 	end
 
 	initial begin
-		Reset = 1; Byte_ready = 0; T_byte = 0; Clk = 0; #(2*PERIOD);
+		Reset = 1; Byte_ready = 0; T_byte = 0; Clk = 0; Data_bus = 8'b11111111; #(2*PERIOD);
 		#(2*PERIOD); 
 		#(2*PERIOD);
 		Reset = 0;
@@ -140,21 +151,28 @@ module Trans_Contr_tb();
 		#(2*PERIOD);
 		#(2*PERIOD);
 		T_byte = 1;
+		#(14*2*PERIOD);
+		T_byte = 0; Byte_ready = 0; Data_bus = 8'b10101010;
+		#(2*PERIOD);
+		#(2*PERIOD);
+		#(2*PERIOD);
+		#(2*PERIOD); 
+		Byte_ready = 1;
+		#(2*PERIOD);
+		#(2*PERIOD);
+		T_byte = 1;
+		#(14*2*PERIOD);
+		T_byte = 0; Byte_ready = 0;
 		#(2*PERIOD);
 		#(2*PERIOD);
 		#(2*PERIOD);
 		#(2*PERIOD);
-		#(2*PERIOD);
-		#(2*PERIOD);
-		#(2*PERIOD);
-		#(2*PERIOD);
-		#(2*PERIOD);
-		#(2*PERIOD);
-		#(2*PERIOD);
-		#(2*PERIOD);
-		#(2*PERIOD);
-		#(2*PERIOD);
-		#(2*PERIOD);
+		// #(2*PERIOD);
+		// #(2*PERIOD);
+		// #(2*PERIOD);
+		// #(2*PERIOD);
+		// #(2*PERIOD);
+		 #(20*PERIOD);
 		$finish;
 	end
 endmodule
