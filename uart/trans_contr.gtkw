@@ -1,0 +1,46 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Tue Sep 24 07:53:28 2019
+[*]
+[dumpfile] "C:\Users\unLvcky\Desktop\6710git\ECE6710\uart\Trans_Contr.vcd"
+[dumpfile_mtime] "Tue Sep 24 07:52:29 2019"
+[dumpfile_size] 2409
+[savefile] "C:\Users\unLvcky\Desktop\6710git\ECE6710\uart\trans_contr.gtkw"
+[timestart] 113
+[size] 2560 1377
+[pos] -295 -295
+*-5.162283 439 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Trans_Contr_tb.
+[treeopen] Trans_Contr_tb.dut.
+[sst_width] 331
+[signals_width] 305
+[sst_expanded] 1
+[sst_vpaned_height] 426
+@28
+Trans_Contr_tb.dut.Reset
+Trans_Contr_tb.dut.Clk
+Trans_Contr_tb.dut.ps[1:0]
+[color] 2
+Trans_Contr_tb.dut.Byte_ready
+[color] 2
+Trans_Contr_tb.dut.T_byte
+@c00024
+Trans_Contr_tb.dut.Counter[3:0]
+@28
+(0)Trans_Contr_tb.dut.Counter[3:0]
+(1)Trans_Contr_tb.dut.Counter[3:0]
+(2)Trans_Contr_tb.dut.Counter[3:0]
+(3)Trans_Contr_tb.dut.Counter[3:0]
+@1401200
+-group_end
+@28
+Trans_Contr_tb.dut.data_reg.Data_bus[7:0]
+Trans_Contr_tb.dut.shift_reg.Data_reg_in[9:0]
+Trans_Contr_tb.dut.Load_XMT_register_w
+Trans_Contr_tb.dut.Load_shift_register_w
+[color] 3
+Trans_Contr_tb.dut.Serial_out
+@29
+Trans_Contr_tb.dut.shift_reg.Shift_reg_data[9:0]
+[pattern_trace] 1
+[pattern_trace] 0

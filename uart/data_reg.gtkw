@@ -1,0 +1,42 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Mon Sep 23 21:17:11 2019
+[*]
+[dumpfile] "C:\Users\unLvcky\Desktop\6710git\ECE6710\Data_Reg.vcd"
+[dumpfile_mtime] "Mon Sep 23 21:16:52 2019"
+[dumpfile_size] 546
+[savefile] "C:\Users\unLvcky\Desktop\6710git\ECE6710\data_reg.gtkw"
+[timestart] 0
+[size] 2560 1377
+[pos] -61 -61
+*-4.589243 16 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Data_Reg_tb.
+[sst_width] 197
+[signals_width] 314
+[sst_expanded] 1
+[sst_vpaned_height] 426
+@c00028
+Data_Reg_tb.dut.Byte_pckg[9:0]
+@28
+(0)Data_Reg_tb.dut.Byte_pckg[9:0]
+(1)Data_Reg_tb.dut.Byte_pckg[9:0]
+(2)Data_Reg_tb.dut.Byte_pckg[9:0]
+(3)Data_Reg_tb.dut.Byte_pckg[9:0]
+(4)Data_Reg_tb.dut.Byte_pckg[9:0]
+(5)Data_Reg_tb.dut.Byte_pckg[9:0]
+(6)Data_Reg_tb.dut.Byte_pckg[9:0]
+(7)Data_Reg_tb.dut.Byte_pckg[9:0]
+(8)Data_Reg_tb.dut.Byte_pckg[9:0]
+(9)Data_Reg_tb.dut.Byte_pckg[9:0]
+@1401200
+-group_end
+@28
+Data_Reg_tb.dut.Byte_pckg_out[9:0]
+@29
+Data_Reg_tb.dut.Data_bus[7:0]
+@28
+Data_Reg_tb.dut.Load_XMT_register
+Data_Reg_tb.dut.Clk
+Data_Reg_tb.dut.Reset
+[pattern_trace] 1
+[pattern_trace] 0

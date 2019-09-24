@@ -1,0 +1,34 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Mon Sep 23 22:14:16 2019
+[*]
+[dumpfile] "C:\Users\unLvcky\Desktop\6710git\ECE6710\please.vcd"
+[dumpfile_mtime] "Mon Sep 23 22:13:21 2019"
+[dumpfile_size] 1724
+[savefile] "C:\Users\unLvcky\Desktop\6710git\ECE6710\shift_reg.gtkw"
+[timestart] 0
+[size] 2560 1377
+[pos] -35 -35
+*-6.896852 340 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Shift_Reg_tb.
+[sst_width] 197
+[signals_width] 347
+[sst_expanded] 1
+[sst_vpaned_height] 900
+@28
+Shift_Reg_tb.dut.Clk
+Shift_Reg_tb.dut.Reset
+Shift_Reg_tb.dut.Load_shift_register
+[color] 5
+Shift_Reg_tb.dut.Start
+@25
+Shift_Reg_tb.dut.Counter[3:0]
+@28
+[color] 3
+Shift_Reg_tb.dut.Data_reg_in[9:0]
+[color] 7
+Shift_Reg_tb.dut.Serial_out
+[color] 3
+Shift_Reg_tb.dut.Shift_reg_data[9:0]
+[pattern_trace] 1
+[pattern_trace] 0
