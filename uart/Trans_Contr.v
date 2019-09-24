@@ -9,13 +9,13 @@ module Trans_Contr(Serial_out, Clk, Reset, Byte_ready, T_byte, Data_in);
 
 	input [7:0] Data_in;							
 	// status registers
-	reg Start, /*Clear, */Load_shift_register, Load_XMT_register;
+	reg Start, Load_shift_register, Load_XMT_register;
 	reg [3:0] Counter;
 
-	wire Start_w, Load_shift_register_w, Load_XMT_register_w;
-
 	// module hookup wires
+	wire Start_w, Load_shift_register_w, Load_XMT_register_w;
 	wire [9:0] Byte_pckg_out_Data_reg_in;
+
 
 
 	parameter [1:0]	Idle = 2'b00;
@@ -61,13 +61,10 @@ module Trans_Contr(Serial_out, Clk, Reset, Byte_ready, T_byte, Data_in);
 					end else begin 
 						if (Load_shift_register == 1'b0) begin
 							ns <= 2'b00;
-							//Load_shift_register <= 0;
 							Load_XMT_register <= 0;
 							Start <= 0;
 						end else begin
-
 							ns <= Loading;
-							//Load_shift_register <= 1;
 							Load_XMT_register <= 1;
 							Start <= 0;	
 						end
@@ -77,8 +74,7 @@ module Trans_Contr(Serial_out, Clk, Reset, Byte_ready, T_byte, Data_in);
 						ns <= Clearing;
 						Load_shift_register <= 0; // these two loads were moved from Clearing stage to hit it a cycle before
 						Load_XMT_register <= 0;
-						Start <= 0;
-						
+						Start <= 0;		
 					end else begin
 						ns <= Transmitting;
 						Counter <= Counter + 1'b1;
@@ -88,7 +84,6 @@ module Trans_Contr(Serial_out, Clk, Reset, Byte_ready, T_byte, Data_in);
 					end
 				Clearing: // ---------------------------------------------------------CLEARING-----------------------------------
 					begin
-						//Counter <= 4'b0;
 						ns <= Idle;
 						Load_XMT_register <= 0;
 						Start <= 0;
